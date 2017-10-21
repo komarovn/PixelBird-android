@@ -1,7 +1,6 @@
 package com.mobile.pixelbird.world;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -92,6 +91,9 @@ public class Renderer {
         batcher.draw(bird.shouldNotFlap() ? birdCenter : (TextureRegion) animation.getKeyFrame(time),
                 bird.getX(), bird.getY(), bird.getWidth() / 2.0f, bird.getHeight() / 2.0f,
                 bird.getWidth(), bird.getHeight(), 1, 1, bird.getRotation());
+        String score = String.valueOf(world.getScore());
+        AssetLoader.shadow.draw(batcher, score, (136 / 2) - (3 * score.length()), 22);
+        AssetLoader.font.draw(batcher, score, (136 / 2) - (3 * score.length() - 1), 21);
         batcher.end();
     }
 

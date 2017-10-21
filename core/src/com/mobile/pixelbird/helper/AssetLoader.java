@@ -50,9 +50,9 @@ public class AssetLoader {
         bar.flip(false, true);
 
         font = new BitmapFont(Gdx.files.internal("data/text.fnt"));
-        //font.setScale(.25f, -.25f);
+        font.getData().setScale(0.25f, -0.25f);
         shadow = new BitmapFont(Gdx.files.internal("data/shadow.fnt"));
-        //shadow.setScale(.25f, -.25f);
+        shadow.getData().setScale(0.25f, -0.25f);
     }
 
     public static void disposeAssets() {

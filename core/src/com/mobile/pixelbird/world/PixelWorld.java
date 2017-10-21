@@ -11,9 +11,11 @@ public class PixelWorld {
 
     private ScrollHandler scroller;
 
+    private int score = 0;
+
     public PixelWorld(int minY) {
         this.bird = new Bird(33, minY - 5, 22, 17);
-        this.scroller = new ScrollHandler(minY + 66);
+        this.scroller = new ScrollHandler(this, minY + 66);
         this.ground = new Rectangle(0, minY + 66, 136, 11);
     }
 
@@ -42,5 +44,13 @@ public class PixelWorld {
 
     public ScrollHandler getScroller() {
         return scroller;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void addScore(int inc) {
+        score += inc;
     }
 }

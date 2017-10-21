@@ -13,6 +13,7 @@ public class Pipe extends Scrollable {
     private SecureRandom seed;
     private float groundY;
     private Rectangle skullUp, skullDown, barUp, barDown;
+    private boolean isScored = false;
 
     public Pipe(float x, float y, int width, int height, float scrollSpeed, float groundY) {
         super(x, y, width, height, scrollSpeed);
@@ -28,6 +29,7 @@ public class Pipe extends Scrollable {
     public void reset(float x) {
         super.reset(x);
         this.height = seed.nextInt(90) + 15;
+        this.isScored = false;
     }
 
     @Override
@@ -64,5 +66,13 @@ public class Pipe extends Scrollable {
 
     public Rectangle getBarDown() {
         return barDown;
+    }
+
+    public boolean isScored() {
+        return isScored;
+    }
+
+    public void setScored(boolean scored) {
+        isScored = scored;
     }
 }
