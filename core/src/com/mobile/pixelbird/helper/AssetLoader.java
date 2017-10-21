@@ -3,6 +3,7 @@ package com.mobile.pixelbird.helper;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetLoader {
@@ -16,6 +17,7 @@ public class AssetLoader {
     public static TextureRegion skullUp;
     public static TextureRegion skullDown;
     public static TextureRegion bar;
+    public static BitmapFont font, shadow;
 
     public static void loadAssets() {
         texture = new Texture(Gdx.files.internal("data/texture.png"));
@@ -46,9 +48,16 @@ public class AssetLoader {
 
         bar = new TextureRegion(texture, 136, 16, 22, 3);
         bar.flip(false, true);
+
+        font = new BitmapFont(Gdx.files.internal("data/text.fnt"));
+        //font.setScale(.25f, -.25f);
+        shadow = new BitmapFont(Gdx.files.internal("data/shadow.fnt"));
+        //shadow.setScale(.25f, -.25f);
     }
 
     public static void disposeAssets() {
         texture.dispose();
+        font.dispose();
+        shadow.dispose();
     }
 }
